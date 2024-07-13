@@ -1,9 +1,9 @@
 (() => {
   const valoresButtonHTML = () => {
     let valoresButtons = [];
-    let button = document.querySelectorAll(".tecla");
+    let buttons = document.querySelectorAll(".tecla");
 
-    button.forEach((button, numTecla) => {
+    buttons.forEach((button) => {
       valoresButtons.push(button);
     });
 
@@ -12,9 +12,9 @@
 
   const valoresAudioHTML = () => {
     let valoresAudio = [];
-    let audio = document.querySelectorAll("audio");
+    let audios = document.querySelectorAll("audio");
 
-    audio.forEach((audio, numAudio) => {
+    audios.forEach((audio) => {
       valoresAudio.push(audio);
     });
 
@@ -22,17 +22,17 @@
   };
 
   let buttonsObtenidos = valoresButtonHTML();
-  console.log("Buttons" + buttonsObtenidos[0]);
+  console.log(`Buttons: ${buttonsObtenidos[0]}`);
 
   let audiosObtenidos = valoresAudioHTML();
-  console.log("Aqui" + audiosObtenidos[0]);
+  console.log(`Audios: ${audiosObtenidos[0]}`);
 
-  for (let i = 0; i <= buttonsObtenidos.length; i++) {
+  for (let i = 0; i < buttonsObtenidos.length; i++) {
     buttonsObtenidos[i].addEventListener("click", () => {
       if (audiosObtenidos[i]) {
         audiosObtenidos[i].play();
       } else {
-        console.error(`No se encontró el sonido para la tecla`);
+        console.error(`No se encontró el sonido para la tecla ${i + 1}`);
       }
     });
   }
